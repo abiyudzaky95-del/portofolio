@@ -1,0 +1,434 @@
+/* ===== PIXEL GAME THEME ===== */
+
+/* Import Pixel Font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+    /* Pixel Game Colors */
+    --pixel-bg: #0f0f1e;
+    --pixel-dark: #1a1a2e;
+    --pixel-purple: #6b2d5c;
+    --pixel-pink: #ff6b9d;
+    --pixel-cyan: #00d9ff;
+    --pixel-yellow: #ffd700;
+    --pixel-green: #00ff88;
+    --pixel-orange: #ff8c42;
+    --pixel-white: #ffffff;
+    
+    /* Pixel Font */
+    --font-pixel: 'Press Start 2P', cursive;
+}
+
+/* Override Body */
+body {
+    background: var(--pixel-bg);
+    font-family: var(--font-pixel);
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+/* Pixel Grid Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ===== NAVIGATION - PIXEL STYLE ===== */
+.navbar {
+    background: rgba(26, 26, 46, 0.95);
+    border-bottom: 4px solid var(--pixel-cyan);
+    box-shadow: 0 4px 0 var(--pixel-purple);
+}
+
+.logo {
+    font-family: var(--font-pixel);
+    font-size: 12px;
+    color: var(--pixel-yellow);
+    text-shadow: 
+        2px 2px 0 var(--pixel-orange),
+        4px 4px 0 rgba(0, 0, 0, 0.3);
+    animation: logo-glow 2s ease-in-out infinite;
+}
+
+@keyframes logo-glow {
+    0%, 100% {
+        text-shadow: 
+            2px 2px 0 var(--pixel-orange),
+            4px 4px 0 rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        text-shadow: 
+            2px 2px 0 var(--pixel-orange),
+            4px 4px 0 rgba(0, 0, 0, 0.3),
+            0 0 20px var(--pixel-yellow);
+    }
+}
+
+.nav-links a {
+    font-family: var(--font-pixel);
+    font-size: 10px;
+    color: var(--pixel-white);
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--pixel-cyan);
+    text-shadow: 0 0 10px var(--pixel-cyan);
+    transform: translateY(-2px);
+}
+
+.nav-links a::after {
+    background: linear-gradient(90deg, var(--pixel-cyan), var(--pixel-pink));
+    height: 3px;
+}
+
+/* ===== HERO SECTION - PIXEL GAME ===== */
+.hero {
+    background: linear-gradient(180deg, var(--pixel-bg) 0%, var(--pixel-dark) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    display: none;
+}
+
+.hero-footer {
+    background: repeating-linear-gradient(
+        90deg,
+        var(--pixel-green) 0px,
+        var(--pixel-green) 20px,
+        var(--pixel-cyan) 20px,
+        var(--pixel-cyan) 40px,
+        var(--pixel-pink) 40px,
+        var(--pixel-pink) 60px,
+        var(--pixel-yellow) 60px,
+        var(--pixel-yellow) 80px
+    );
+    height: 60px;
+    animation: rainbow-scroll 2s linear infinite;
+}
+
+@keyframes rainbow-scroll {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 80px 0;
+    }
+}
+
+.hero-title {
+    font-family: var(--font-pixel);
+    font-size: 32px;
+    line-height: 1.5;
+    color: var(--pixel-white);
+    text-shadow: 
+        3px 3px 0 var(--pixel-purple),
+        6px 6px 0 rgba(0, 0, 0, 0.5);
+    animation: title-bounce 2s ease-in-out infinite;
+}
+
+@keyframes title-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.title-line.highlight {
+    color: var(--pixel-yellow);
+    text-shadow: 
+        3px 3px 0 var(--pixel-orange),
+        6px 6px 0 rgba(0, 0, 0, 0.5),
+        0 0 20px var(--pixel-yellow);
+}
+
+.hero-subtitle {
+    font-family: var(--font-pixel);
+    font-size: 10px;
+    color: var(--pixel-cyan);
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+.hero-description {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* ===== PIXEL BUTTONS ===== */
+.btn {
+    font-family: var(--font-pixel);
+    font-size: 10px;
+    padding: 15px 30px;
+    border-radius: 0;
+    border: 4px solid;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.3s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: var(--pixel-yellow);
+    border-color: var(--pixel-orange);
+    color: var(--pixel-dark);
+}
+
+.btn-primary:hover {
+    background: var(--pixel-orange);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    border-color: var(--pixel-cyan);
+    color: var(--pixel-cyan);
+}
+
+.btn-secondary:hover {
+    background: var(--pixel-cyan);
+    color: var(--pixel-dark);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* ===== PHOTO FRAME - PIXEL STYLE ===== */
+.photo-frame {
+    border-radius: 0;
+    border: 6px solid var(--pixel-cyan);
+    box-shadow: 
+        0 0 0 2px var(--pixel-dark),
+        0 0 0 8px var(--pixel-pink),
+        8px 8px 0 rgba(0, 0, 0, 0.5),
+        0 0 30px var(--pixel-cyan);
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-frame::before {
+    background: none;
+}
+
+.photo-frame::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(0, 217, 255, 0.1) 10px,
+        rgba(0, 217, 255, 0.1) 20px
+    );
+    animation: scan-line 3s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes scan-line {
+    0% {
+        transform: translateY(-50%);
+    }
+    100% {
+        transform: translateY(50%);
+    }
+}
+
+.photo-decoration {
+    border: 4px solid var(--pixel-yellow);
+    border-radius: 0;
+    filter: none;
+}
+
+.photo-badge {
+    background: var(--pixel-green);
+    border: 4px solid var(--pixel-dark);
+    border-radius: 0;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+    animation: badge-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5), 0 0 20px var(--pixel-green);
+    }
+}
+
+/* ===== QUICK LINKS - PIXEL STYLE ===== */
+.quick-links {
+    background: var(--pixel-dark);
+    position: relative;
+}
+
+.quick-link-card {
+    background: var(--pixel-purple);
+    border: 4px solid var(--pixel-pink);
+    border-radius: 0;
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.quick-link-card::before {
+    display: none;
+}
+
+.quick-link-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.5);
+    border-color: var(--pixel-cyan);
+}
+
+.quick-link-icon {
+    background: var(--pixel-yellow);
+    border: 4px solid var(--pixel-orange);
+    border-radius: 0;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+    color: var(--pixel-dark);
+}
+
+.quick-link-card h3 {
+    font-family: var(--font-pixel);
+    font-size: 12px;
+    color: var(--pixel-white);
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+.quick-link-card p {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 12px;
+}
+
+/* ===== FOOTER - PIXEL STYLE ===== */
+.footer {
+    background: var(--pixel-dark);
+    border-top: 4px solid var(--pixel-cyan);
+}
+
+.footer::before {
+    height: 4px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--pixel-cyan) 0px,
+        var(--pixel-cyan) 20px,
+        var(--pixel-pink) 20px,
+        var(--pixel-pink) 40px
+    );
+}
+
+.footer-logo {
+    font-family: var(--font-pixel);
+    font-size: 10px;
+}
+
+.social-link {
+    border: 3px solid var(--pixel-cyan);
+    border-radius: 0;
+    background: var(--pixel-purple);
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--pixel-cyan);
+    color: var(--pixel-dark);
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* ===== PAGE HEADER - PIXEL STYLE ===== */
+.page-header {
+    background: linear-gradient(180deg, var(--pixel-bg) 0%, var(--pixel-dark) 100%);
+    border-bottom: 4px solid var(--pixel-cyan);
+}
+
+.page-number {
+    background: var(--pixel-yellow);
+    border: 4px solid var(--pixel-orange);
+    border-radius: 0;
+    color: var(--pixel-dark);
+    font-family: var(--font-pixel);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.page-title {
+    font-family: var(--font-pixel);
+    text-shadow: 
+        3px 3px 0 var(--pixel-purple),
+        6px 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* ===== CARDS - PIXEL STYLE ===== */
+.about-card,
+.profile-card,
+.skill-tag-item,
+.soft-skill-card,
+.portfolio-card,
+.contact-info-card,
+.contact-form-section {
+    border-radius: 0;
+    border: 4px solid var(--pixel-cyan);
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+.about-card:hover,
+.skill-tag-item:hover,
+.soft-skill-card:hover,
+.portfolio-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 20px;
+    }
+    
+    .btn {
+        font-size: 8px;
+        padding: 12px 20px;
+    }
+    
+    .quick-link-card h3 {
+        font-size: 10px;
+    }
+}

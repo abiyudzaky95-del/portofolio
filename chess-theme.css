@@ -1,0 +1,1167 @@
+/* ===== CHESS THEME - ELEGANT & PROFESSIONAL ===== */
+
+/* Import Elegant Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap');
+
+:root {
+    /* Chess Colors - Monochrome Elegant */
+    --chess-black: #1a1a1a;
+    --chess-dark-gray: #2d2d2d;
+    --chess-gray: #4a4a4a;
+    --chess-light-gray: #e8e8e8;
+    --chess-white: #f5f5f5;
+    --chess-cream: #f9f9f7;
+    --chess-gold: #d4af37;
+    --chess-silver: #c0c0c0;
+    
+    /* Accent Colors */
+    --accent-red: #c41e3a;
+    --accent-blue: #4169e1;
+    
+    /* Fonts */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+/* Override Body */
+body {
+    background: var(--chess-cream);
+    font-family: var(--font-body);
+    color: var(--chess-black);
+}
+
+/* ===== CHESS BOARD BACKGROUND ===== */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(45deg, transparent 48%, rgba(0, 0, 0, 0.02) 48%, rgba(0, 0, 0, 0.02) 52%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, rgba(0, 0, 0, 0.02) 48%, rgba(0, 0, 0, 0.02) 52%, transparent 52%);
+    background-size: 60px 60px;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ===== NAVIGATION - CHESS STYLE ===== */
+.navbar {
+    background: var(--chess-black);
+    border-bottom: 3px solid var(--chess-gold);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--chess-white);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.nav-links a {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--chess-white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--chess-gold);
+}
+
+.nav-links a::after {
+    background: var(--chess-gold);
+    height: 2px;
+}
+
+/* ===== HERO SECTION - CHESS STYLE ===== */
+.hero {
+    background: linear-gradient(135deg, var(--chess-black) 0%, var(--chess-dark-gray) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 80px,
+            rgba(212, 175, 55, 0.05) 80px,
+            rgba(212, 175, 55, 0.05) 160px
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 80px,
+            rgba(212, 175, 55, 0.05) 80px,
+            rgba(212, 175, 55, 0.05) 160px
+        );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-footer {
+    background: var(--chess-gold);
+    height: 80px;
+    position: relative;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--chess-white);
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+.title-line.highlight {
+    color: var(--chess-gold);
+    position: relative;
+    display: inline-block;
+}
+
+.title-line.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--chess-gold);
+}
+
+.hero-subtitle {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--chess-gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--chess-light-gray);
+    font-weight: 300;
+}
+
+/* ===== CHESS BUTTONS ===== */
+.btn {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 16px 40px;
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: left 0.4s ease;
+    z-index: 0;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: var(--chess-gold);
+    border-color: var(--chess-gold);
+    color: var(--chess-black);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: var(--chess-gold);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+}
+
+.btn-secondary {
+    background: transparent;
+    border-color: var(--chess-white);
+    color: var(--chess-white);
+}
+
+.btn-secondary:hover {
+    background: var(--chess-white);
+    color: var(--chess-black);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* ===== PHOTO FRAME - CHESS STYLE ===== */
+.photo-frame {
+    border-radius: 0;
+    border: 8px solid var(--chess-gold);
+    box-shadow: 
+        0 0 0 2px var(--chess-black),
+        0 0 0 12px var(--chess-white),
+        0 20px 60px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-frame::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(212, 175, 55, 0.1) 10px,
+        rgba(212, 175, 55, 0.1) 20px
+    );
+    animation: diagonal-move 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes diagonal-move {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(50px, 50px);
+    }
+}
+
+.photo-frame:hover {
+    border-color: var(--chess-white);
+    box-shadow: 
+        0 0 0 2px var(--chess-black),
+        0 0 0 12px var(--chess-gold),
+        0 25px 70px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(212, 175, 55, 0.4);
+}
+
+.photo-decoration {
+    border: 4px solid var(--chess-gold);
+    border-radius: 0;
+}
+
+.photo-decoration.decoration-1 {
+    border-right: none;
+    border-bottom: none;
+}
+
+.photo-decoration.decoration-2 {
+    border-left: none;
+    border-top: none;
+}
+
+.photo-badge {
+    background: var(--chess-gold);
+    border: 4px solid var(--chess-black);
+    border-radius: 50%;
+    color: var(--chess-black);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.6);
+}
+
+/* ===== QUICK LINKS - CHESS STYLE ===== */
+.quick-links {
+    background: var(--chess-white);
+    position: relative;
+}
+
+.quick-links::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--chess-gold), transparent);
+}
+
+.quick-link-card {
+    background: var(--chess-cream);
+    border: 2px solid var(--chess-light-gray);
+    border-radius: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.quick-link-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: var(--chess-gold);
+    transition: height 0.3s ease;
+}
+
+.quick-link-card:hover::before {
+    height: 100%;
+}
+
+.quick-link-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--chess-gold);
+}
+
+.quick-link-icon {
+    background: var(--chess-black);
+    border: none;
+    border-radius: 0;
+    color: var(--chess-gold);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.quick-link-card:hover .quick-link-icon {
+    background: var(--chess-gold);
+    color: var(--chess-black);
+}
+
+.quick-link-card h3 {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--chess-black);
+}
+
+.quick-link-card p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--chess-gray);
+    line-height: 1.6;
+}
+
+.quick-link-card .arrow {
+    color: var(--chess-gold);
+}
+
+/* ===== FOOTER - CHESS STYLE ===== */
+.footer {
+    background: var(--chess-black);
+    border-top: 3px solid var(--chess-gold);
+}
+
+.footer::before {
+    height: 3px;
+    background: var(--chess-gold);
+}
+
+.footer-logo {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.social-link {
+    border: 2px solid var(--chess-gold);
+    border-radius: 0;
+    background: transparent;
+}
+
+.social-link:hover {
+    background: var(--chess-gold);
+    color: var(--chess-black);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* ===== PAGE HEADER - CHESS STYLE ===== */
+.page-header {
+    background: linear-gradient(135deg, var(--chess-black) 0%, var(--chess-dark-gray) 100%);
+    border-bottom: 3px solid var(--chess-gold);
+}
+
+.page-number {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    color: var(--chess-gold);
+    font-family: var(--font-heading);
+    font-weight: 900;
+    box-shadow: none;
+}
+
+.page-title {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+/* ===== CARDS - CHESS STYLE ===== */
+.about-card,
+.profile-card,
+.skill-tag-item,
+.soft-skill-card,
+.portfolio-card,
+.contact-info-card,
+.contact-form-section {
+    border-radius: 0;
+    border: 2px solid var(--chess-light-gray);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.about-card:hover,
+.skill-tag-item:hover,
+.soft-skill-card:hover,
+.portfolio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    border-color: var(--chess-gold);
+}
+
+.about-card-header {
+    background: var(--chess-black);
+    color: var(--chess-white);
+}
+
+.about-card-header h3 {
+    color: var(--chess-white);
+}
+
+.about-icon {
+    background: var(--chess-gold);
+    color: var(--chess-black);
+    border-radius: 0;
+}
+
+/* ===== ABOUT PAGE - ENHANCED CHESS THEME ===== */
+.about-section {
+    position: relative;
+    background: var(--chess-cream);
+}
+
+/* Profile Card with Chess Board Pattern */
+.profile-card {
+    background: var(--chess-white);
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 40px,
+            rgba(212, 175, 55, 0.02) 40px,
+            rgba(212, 175, 55, 0.02) 80px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 40px,
+            rgba(212, 175, 55, 0.02) 40px,
+            rgba(212, 175, 55, 0.02) 80px
+        );
+    pointer-events: none;
+    z-index: 0;
+}
+
+.profile-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* About Cards with Chess Piece Icons */
+.about-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-card::before {
+    content: '♟';
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    font-size: 120px;
+    color: var(--chess-light-gray);
+    opacity: 0.05;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.about-card:nth-child(1)::before { content: '♔'; }
+.about-card:nth-child(2)::before { content: '♕'; }
+.about-card:nth-child(3)::before { content: '♖'; }
+.about-card:nth-child(4)::before { content: '♗'; }
+.about-card:nth-child(5)::before { content: '♘'; }
+.about-card:nth-child(6)::before { content: '♙'; }
+
+.about-card:hover::before {
+    transform: scale(1.2) rotate(15deg);
+    opacity: 0.08;
+}
+
+/* Timeline with Chess Board Line */
+.timeline::before {
+    background: linear-gradient(
+        180deg,
+        var(--chess-gold) 0%,
+        var(--chess-gold) 25%,
+        var(--chess-black) 25%,
+        var(--chess-black) 50%,
+        var(--chess-gold) 50%,
+        var(--chess-gold) 75%,
+        var(--chess-black) 75%,
+        var(--chess-black) 100%
+    );
+    background-size: 100% 40px;
+    width: 4px;
+}
+
+.timeline-dot {
+    background: var(--chess-gold);
+    border: 4px solid var(--chess-white);
+    box-shadow: 0 0 0 3px var(--chess-black);
+    width: 16px;
+    height: 16px;
+}
+
+/* Hobby Items as Chess Squares */
+.hobby-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.hobby-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(45deg, transparent 48%, rgba(212, 175, 55, 0.1) 48%, rgba(212, 175, 55, 0.1) 52%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, rgba(212, 175, 55, 0.1) 48%, rgba(212, 175, 55, 0.1) 52%, transparent 52%);
+    background-size: 20px 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.hobby-item:hover::after {
+    opacity: 1;
+}
+
+/* Goal Numbers as Chess Pieces */
+.goal-number {
+    position: relative;
+    background: var(--chess-black);
+    color: var(--chess-gold);
+    border: 3px solid var(--chess-gold);
+    font-family: var(--font-heading);
+}
+
+.goal-number::before {
+    content: '♔';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    opacity: 0.2;
+    color: var(--chess-gold);
+}
+
+.goal-item:nth-child(2) .goal-number::before { content: '♕'; }
+.goal-item:nth-child(3) .goal-number::before { content: '♖'; }
+
+/* Interest List with Chess Pattern */
+.interest-list li {
+    border-left: 4px solid var(--chess-gold);
+    position: relative;
+}
+
+.interest-list li::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 0;
+    width: 4px;
+    height: 0;
+    background: var(--chess-black);
+    transition: height 0.3s ease;
+}
+
+.interest-list li:hover::before {
+    height: 100%;
+}
+
+/* Strength Tags with Chess Square Effect */
+.strength-tag {
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.strength-tag:hover {
+    border-color: var(--chess-gold);
+    box-shadow: 0 0 0 2px var(--chess-black), 0 0 0 4px var(--chess-gold);
+}
+
+.profile-info h2 {
+    color: var(--chess-black);
+}
+
+.profile-image img {
+    border-color: var(--chess-gold);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+}
+
+.profile-badge {
+    background: var(--chess-gold);
+    border-color: var(--chess-cream);
+    color: var(--chess-black);
+}
+
+.profile-tagline {
+    color: var(--chess-gold);
+}
+
+.profile-description {
+    color: var(--chess-gray);
+}
+
+.stat-number {
+    color: var(--chess-gold);
+    font-family: var(--font-heading);
+    font-weight: 900;
+}
+
+.stat-label {
+    color: var(--chess-gray);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 48px;
+    }
+    
+    .chess-piece {
+        font-size: 40px;
+    }
+}
+
+
+/* ===== CONSISTENT CHESS THEME FOR ALL PAGES ===== */
+
+/* Add Chess Pieces to All Sections */
+.about-section,
+.skills-section,
+.portfolio-section,
+.contact-section {
+    position: relative;
+    background: var(--chess-cream);
+}
+
+.about-section::before,
+.skills-section::before,
+.portfolio-section::before,
+.contact-section::before {
+    content: '♔';
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 120px;
+    color: var(--chess-light-gray);
+    opacity: 0.05;
+    animation: rotate-piece 30s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.skills-section::before {
+    content: '♕';
+    left: 5%;
+    right: auto;
+}
+
+.portfolio-section::before {
+    content: '♖';
+    top: 10%;
+}
+
+.contact-section::before {
+    content: '♘';
+    left: 5%;
+    right: auto;
+}
+
+@keyframes rotate-piece {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== SECTION HEADERS WITH CHESS DECORATION ===== */
+.section-title-wrapper {
+    position: relative;
+    padding-left: 60px;
+}
+
+.section-title-wrapper::before {
+    content: '♔';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    color: var(--chess-gold);
+    animation: pulse-piece 2s ease-in-out infinite;
+}
+
+@keyframes pulse-piece {
+    0%, 100% {
+        transform: translateY(-50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-50%) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* ===== INTERACTIVE CARDS WITH CHESS PATTERN ===== */
+.about-card,
+.skill-tag-item,
+.soft-skill-card,
+.portfolio-card,
+.contact-info-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-card::after,
+.skill-tag-item::after,
+.soft-skill-card::after,
+.portfolio-card::after,
+.contact-info-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 20px,
+            rgba(212, 175, 55, 0.03) 20px,
+            rgba(212, 175, 55, 0.03) 40px
+        );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.about-card:hover::after,
+.skill-tag-item:hover::after,
+.soft-skill-card:hover::after,
+.portfolio-card:hover::after,
+.contact-info-card:hover::after {
+    opacity: 1;
+    animation: chess-pattern-move 20s linear infinite;
+}
+
+@keyframes chess-pattern-move {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(40px, 40px);
+    }
+}
+
+/* ===== SKILLS PAGE - ENHANCED CHESS THEME ===== */
+.skills-section {
+    position: relative;
+    background: var(--chess-cream);
+}
+
+/* Skills Intro with Chess Board Border */
+.skills-intro {
+    position: relative;
+    padding: 40px;
+    background: var(--chess-white);
+    border: 3px solid var(--chess-gold);
+    box-shadow: 
+        0 0 0 6px var(--chess-white),
+        0 0 0 9px var(--chess-black),
+        0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 60px;
+}
+
+.skills-intro::before {
+    content: '♔ ♕ ♖ ♗ ♘ ♙';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--chess-white);
+    padding: 0 20px;
+    font-size: 24px;
+    color: var(--chess-gold);
+    letter-spacing: 10px;
+}
+
+/* Skill Tag Items as Chess Pieces */
+.skill-tag-item {
+    position: relative;
+    border: 2px solid var(--chess-light-gray);
+    background: var(--chess-white);
+}
+
+.skill-tag-item::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    background: 
+        linear-gradient(45deg, var(--chess-black) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--chess-black) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--chess-black) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--chess-black) 75%);
+    background-size: 10px 10px;
+    background-position: 0 0, 0 5px, 5px -5px, -5px 0px;
+    opacity: 0.05;
+}
+
+.skill-tag-item:hover {
+    border-color: var(--chess-gold);
+    box-shadow: 
+        0 0 0 2px var(--chess-white),
+        0 0 0 4px var(--chess-gold),
+        0 8px 25px rgba(212, 175, 55, 0.3);
+}
+
+/* Skill Bar with Chess Pattern */
+.skill-bar-bg {
+    position: relative;
+    background: var(--chess-light-gray);
+    border: 2px solid var(--chess-light-gray);
+}
+
+.skill-bar-fill {
+    position: relative;
+    background: linear-gradient(90deg, var(--chess-black), var(--chess-gold));
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.skill-bar-fill::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 20px,
+            rgba(255, 255, 255, 0.1) 20px,
+            rgba(255, 255, 255, 0.1) 40px
+        );
+}
+
+/* Soft Skill Cards with Chess Icons */
+.soft-skill-card {
+    position: relative;
+    border: 2px solid var(--chess-light-gray);
+}
+
+.soft-skill-card::after {
+    content: '♟';
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 60px;
+    color: var(--chess-light-gray);
+    opacity: 0.05;
+}
+
+.soft-skill-card:nth-child(1)::after { content: '♔'; }
+.soft-skill-card:nth-child(2)::after { content: '♕'; }
+.soft-skill-card:nth-child(3)::after { content: '♖'; }
+.soft-skill-card:nth-child(4)::after { content: '♗'; }
+.soft-skill-card:nth-child(5)::after { content: '♘'; }
+.soft-skill-card:nth-child(6)::after { content: '♙'; }
+
+.soft-skill-card:hover::after {
+    opacity: 0.1;
+    transform: scale(1.2);
+}
+
+/* Certification Cards with Chess Rank Style */
+.certification-card {
+    border-left: 6px solid var(--chess-gold);
+    position: relative;
+}
+
+.certification-card::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 0;
+    width: 6px;
+    height: 0;
+    background: var(--chess-black);
+    transition: height 0.3s ease;
+}
+
+.certification-card:hover::before {
+    height: 100%;
+}
+
+.cert-icon {
+    position: relative;
+    box-shadow: 0 0 0 3px var(--chess-white), 0 0 0 5px var(--chess-gold);
+}
+
+/* Learning Cards with Progress Chess Style */
+.learning-card {
+    border: 3px solid var(--chess-light-gray);
+    position: relative;
+}
+
+.learning-card::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, var(--chess-gold), var(--chess-black));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.learning-card:hover::before {
+    opacity: 1;
+}
+
+.learning-card:hover {
+    border-color: transparent;
+}
+
+.skills-intro p {
+    color: var(--chess-gray);
+}
+
+.skills-list-section,
+.skills-bar-section,
+.soft-skills-section,
+.certifications-section,
+.learning-section {
+    background: var(--chess-white);
+    border: 2px solid var(--chess-light-gray);
+    border-left: 4px solid var(--chess-gold);
+}
+
+.section-title-wrapper h3 {
+    color: var(--chess-black);
+}
+
+.section-title-wrapper p {
+    color: var(--chess-gray);
+}
+
+.skills-bar-column h4 {
+    color: var(--chess-black);
+}
+
+.skill-name {
+    color: var(--chess-black);
+}
+
+.skill-percentage {
+    color: var(--chess-black);
+}
+
+.skill-bar-fill {
+    background: linear-gradient(90deg, var(--chess-black), var(--chess-gold));
+    position: relative;
+}
+
+.skill-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background: var(--chess-gold);
+    box-shadow: 0 0 10px var(--chess-gold);
+}
+
+.soft-skill-card h4 {
+    color: var(--chess-black);
+}
+
+.soft-skill-card p {
+    color: var(--chess-gray);
+}
+
+.skill-tag-item span {
+    color: var(--chess-black);
+}
+
+/* ===== PORTFOLIO PAGE - ENHANCED CHESS THEME ===== */
+.portfolio-section {
+    position: relative;
+    background: var(--chess-cream);
+}
+
+/* Portfolio Intro with Chess Frame */
+.portfolio-intro {
+    position: relative;
+    padding: 40px;
+    background: var(--chess-white);
+    border: 4px solid var(--chess-black);
+    box-shadow: 
+        inset 0 0 0 4px var(--chess-gold),
+        0 10px 30px rgba(0, 0, 0, 0.15);
+    margin-bottom: 50px;
+}
+
+.portfolio-intro::before,
+.portfolio-intro::after {
+    content: '♔';
+    position: absolute;
+    font-size: 40px;
+    color: var(--chess-gold);
+}
+
+.portfolio-intro::before {
+    top: -20px;
+    left: 30px;
+    background: var(--chess-white);
+    padding: 0 10px;
+}
+
+.portfolio-intro::after {
+    content: '♕';
+    bottom: -20px;
+    right: 30px;
+    background: var(--chess-white);
+    padding: 0 10px;
+}
+
+/* Filter Buttons as Chess Squares */
+.portfolio-filters {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    position: relative;
+    padding: 15px 30px;
+    background: var(--chess-white);
+    border: 3px solid var(--chess-black);
+    color: var(--chess-black);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: var(--chess-gold);
+    z-index: -1;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.filter-btn:hover::before,
+.filter-btn.active::before {
+    transform: scale(1);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    color: var(--chess-black);
+    border-color: var(--chess-gold);
+    transform: translateY(-3px);
+}
+
+/* Portfolio Cards */
+.portfolio-card {
+    position: relative;
+    border: 3px solid var(--chess-light-gray);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: var(--chess-white);
+}
+
+.portfolio-card:hover {
+    border-color: var(--chess-gold);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
